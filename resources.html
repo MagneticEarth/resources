@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .tag {
+            background: #e5e7eb;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin: 2px;
+            display: inline-block;
+            font-size: 0.8em;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .tag:hover {
+            background: #d1d5db;
+        }
+        .tag.active {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            color: #1e40af;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .category-title {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .highlight {
+            background-color: #fde68a;
+            padding: 0 2px;
+        }
+        .empty-category {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="container mx-auto max-w-[2000px]">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold">Resources</h1>
+            <div class="space-x-2">
+                <select id="groupBy" class="border rounded-lg px-4 py-2">
+                    <option value="type">Group by Type</option>
+                    <option value="region">Group by Region</option>
+                    <option value="organization">Group by Organization</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="mb-6 relative">
+            <input type="text" id="search" placeholder="Search resources..." class="w-full p-3 border rounded-lg shadow-sm">
+            <div id="searchStats" class="absolute right-3 top-3 text-gray-500 text-sm"></div>
+        </div>
+
+        <div id="resources"></div>
+    </div>
+
+    <script>
+        let allData = [];
+        let activeKeywords = new Set();
+
+        function toggleKeyword(keyword) {
+            if (activeKeywords.has(keyword)) {
+                activeKeywords.delete(keyword);
+            } else {
+                activeKeywords.add(keyword);
+            }
+            filterAndRender();
+        }
+
+        function highlightText(text, searchTerm) {
+            if (!searchTerm) return text;
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function getCategory(item, groupBy) {
+            const keywords = item.keywords.split(';');
+            if (groupBy === 'type') {
+                if (keywords.includes('seminars')) return 'Seminars';
+                if (keywords.includes('summer school') || keywords.includes('education')) return 'Education';
+                if (item.url.includes('mailing-list') || keywords.includes('news')) return 'Mailing Lists';
+                return 'Organizations';
+            } else if (groupBy === 'region') {
+                if (keywords.includes('UK')) return 'United Kingdom';
+                if (keywords.includes('US')) return 'United States';
+                if (keywords.includes('Europe')) return 'Europe';
+                if (keywords.includes('Latin America')) return 'Latin America';
+                return 'International';
+            } else if (groupBy === 'organization') {
+                if (keywords.includes('IAGA')) return 'IAGA';
+                if (keywords.includes('ESA')) return 'ESA';
+                if (keywords.includes('NASA')) return 'NASA';
+                if (keywords.includes('IUGG')) return 'IUGG';
+                return 'Other Organizations';
+            }
+        }
+
+        function groupResources(data, groupBy) {
+            const groups = {};
+            data.forEach(item => {
+                const category = getCategory(item, groupBy);
+                if (!groups[category]) {
+                    groups[category] = [];
+                }
+                groups[category].push(item);
+            });
+            return groups;
+        }
+
+        function renderResources(data, searchTerm = '') {
+            const groupBy = document.getElementById('groupBy').value;
+            const groups = groupResources(data, groupBy);
+            const container = document.getElementById('resources');
+            
+            // Update search stats
+            const searchStats = document.getElementById('searchStats');
+            if (searchTerm) {
+                searchStats.textContent = `Found ${data.length} matches`;
+            } else {
+                searchStats.textContent = '';
+            }
+            
+            container.innerHTML = Object.entries(groups)
+                .sort(([a], [b]) => a.localeCompare(b))
+                .map(([category, items]) => `
+                    <div class="mb-8 ${items.length === 0 ? 'empty-category' : ''}">
+                        <h2 class="category-title text-2xl font-bold mb-4 bg-gray-100 p-4 rounded-lg">
+                            ${category} <span class="text-gray-500 text-sm">(${items.length})</span>
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+                            ${items.map(item => `
+                                <div class="bg-white rounded-lg shadow-md p-4 max-w-md">
+                                    <h3 class="text-lg font-semibold mb-2">
+                                        <a href="${item.url}" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                            ${highlightText(item.name, searchTerm)}
+                                        </a>
+                                    </h3>
+                                    <p class="text-gray-600 mb-3">${highlightText(item['description'], searchTerm)}</p>
+                                    <div class="flex flex-wrap gap-1">
+                                        ${(item.keywords || '').split(';').map(tag => 
+                                            `<span class="tag ${activeKeywords.has(tag) ? 'active' : ''}" 
+                                             onclick="toggleKeyword('${tag}')" 
+                                             style="cursor: pointer">${highlightText(tag, searchTerm)}</span>`
+                                        ).join('')}
+                                    </div>
+                                    ${activeKeywords.size > 0 ? `
+                                        <div class="mt-2 text-sm">
+                                            <button onclick="clearKeywords()" class="text-blue-600 hover:text-blue-800">
+                                                Clear filters (${activeKeywords.size})
+                                            </button>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+        }
+
+        function clearKeywords() {
+            activeKeywords.clear();
+            filterAndRender();
+        }
+
+        function filterAndRender() {
+            const searchInput = document.getElementById('search');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let filtered = allData;
+
+            // Apply keyword filters
+            if (activeKeywords.size > 0) {
+                filtered = filtered.filter(item => {
+                    const itemKeywords = (item.keywords || '').split(';');
+                    return Array.from(activeKeywords).every(keyword => 
+                        itemKeywords.includes(keyword)
+                    );
+                });
+            }
+
+            // Apply search term filter
+            if (searchTerm) {
+                const searchParts = searchTerm.split(/\s+/);
+                filtered = filtered.filter(item => {
+                    const itemText = [
+                        (item.name || '').toLowerCase(),
+                        (item['description'] || '').toLowerCase(),
+                        (item.keywords || '').toLowerCase()
+                    ].join(' ');
+                    
+                    return searchParts.every(part => itemText.includes(part));
+                });
+            }
+
+            console.log('Filtered results:', filtered.length);
+            renderResources(filtered, searchTerm);
+        }
+
+        let searchTimeout;
+        document.getElementById('search').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(filterAndRender, 200); // Debounce search
+        });
+        document.getElementById('groupBy').addEventListener('change', filterAndRender);
+
+        // Initialize data
+        fetch('resources.csv')
+            .then(response => response.text())
+            .then(csv => {
+                const parseResult = Papa.parse(csv, { 
+                    header: true,
+                    skipEmptyLines: true,
+                    transformHeader: h => h.trim(),
+                    transform: function(value) {
+                        return value.trim();
+                    }
+                });
+                
+                if (parseResult.errors.length > 0) {
+                    console.error('CSV parsing errors:', parseResult.errors);
+                }
+                
+                allData = parseResult.data.filter(item => item.name && item.url);
+                console.log('Loaded resources:', allData.length);
+                filterAndRender();
+            })
+            .catch(error => {
+                console.error('Error loading CSV:', error);
+            });
+    </script>
+</body>
+</html>

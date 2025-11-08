@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources</title>
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .tag {
-            background: #e5e7eb;
-            padding: 2px 8px;
-            border-radius: 12px;
-            margin: 2px;
-            display: inline-block;
-            font-size: 0.8em;
-            transition: all 0.2s ease;
-            border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            background-color: rgb(243 244 246);
+            border: 1px solid rgb(229 231 235);
+            transition: all 0.15s ease-in-out;
         }
         .tag:hover {
-            background: #d1d5db;
+            background-color: rgb(229 231 235);
         }
         .tag.active {
-            background: #dbeafe;
-            border-color: #3b82f6;
-            color: #1e40af;
-            font-weight: 600;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            background-color: rgb(219 234 254);
+            border-color: rgb(59 130 246);
+            color: rgb(30 58 138);
+            font-weight: 500;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
         }
         .category-title {
             position: sticky;
             top: 0;
             z-index: 10;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
         }
         .highlight {
-            background-color: #fde68a;
-            padding: 0 2px;
+            background-color: rgb(254 243 199);
+            padding: 0 0.125rem;
+            border-radius: 0.125rem;
         }
         .empty-category {
             display: none;
@@ -42,11 +45,20 @@
     </style>
 </head>
 <body class="bg-gray-100 p-4">
-    <div class="container mx-auto max-w-[2000px]">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold">Resources</h1>
+    <div class="bg-blue-50 border-b border-blue-100">
+        <div class="container mx-auto max-w-[2000px] py-2 px-4 text-center text-blue-700">
+            To make updates, see 
+            <a href="https://github.com/MagneticEarth/resources/" class="underline hover:text-blue-900 transition-colors">
+                https://github.com/MagneticEarth/resources/
+            </a>
+        </div>
+    </div>
+
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center mb-6 mt-6">
+            <h1 class="text-3xl font-bold tracking-tight text-gray-900">Resources</h1>
             <div class="space-x-2">
-                <select id="groupBy" class="border rounded-lg px-4 py-2">
+                <select id="groupBy" class="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6">
                     <option value="type">Group by Type</option>
                     <option value="region">Group by Region</option>
                     <option value="organization">Group by Organization</option>
@@ -54,9 +66,15 @@
             </div>
         </div>
         
-        <div class="mb-6 relative">
-            <input type="text" id="search" placeholder="Search resources..." class="w-full p-3 border rounded-lg shadow-sm">
-            <div id="searchStats" class="absolute right-3 top-3 text-gray-500 text-sm"></div>
+        <div class="mb-6 flex gap-4">
+            <div class="flex-1 relative">
+                <input type="text" id="search" placeholder="Search resources..." 
+                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                <div id="searchStats" class="absolute right-3 top-1.5 text-sm text-gray-500"></div>
+            </div>
+            <button id="clearAllFilters" class="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                Clear All Filters
+            </button>
         </div>
 
         <div id="resources"></div>
@@ -66,6 +84,48 @@
         let allData = [];
         let activeKeywords = new Set();
 
+        // Function to update URL parameters
+        function updateURLParameters() {
+            const params = new URLSearchParams();
+            if (activeKeywords.size > 0) {
+                params.set('keywords', Array.from(activeKeywords).join(','));
+            }
+            const searchTerm = document.getElementById('search').value;
+            if (searchTerm) {
+                params.set('search', searchTerm);
+            }
+            const groupBy = document.getElementById('groupBy').value;
+            if (groupBy !== 'type') {  // Only set if not default
+                params.set('group', groupBy);
+            }
+            
+            const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        // Function to read URL parameters
+        function readURLParameters() {
+            const params = new URLSearchParams(window.location.search);
+            
+            // Set keywords
+            const keywords = params.get('keywords');
+            if (keywords) {
+                keywords.split(',').forEach(k => activeKeywords.add(k));
+            }
+            
+            // Set search term
+            const searchTerm = params.get('search');
+            if (searchTerm) {
+                document.getElementById('search').value = searchTerm;
+            }
+            
+            // Set grouping
+            const groupBy = params.get('group');
+            if (groupBy) {
+                document.getElementById('groupBy').value = groupBy;
+            }
+        }
+
         function toggleKeyword(keyword) {
             if (activeKeywords.has(keyword)) {
                 activeKeywords.delete(keyword);
@@ -73,6 +133,7 @@
                 activeKeywords.add(keyword);
             }
             filterAndRender();
+            updateURLParameters();
         }
 
         function highlightText(text, searchTerm) {
@@ -132,19 +193,19 @@
                 .sort(([a], [b]) => a.localeCompare(b))
                 .map(([category, items]) => `
                     <div class="mb-8 ${items.length === 0 ? 'empty-category' : ''}">
-                        <h2 class="category-title text-2xl font-bold mb-4 bg-gray-100 p-4 rounded-lg">
-                            ${category} <span class="text-gray-500 text-sm">(${items.length})</span>
+                        <h2 class="category-title text-2xl font-bold mb-4 bg-white p-4 rounded-lg shadow-sm">
+                            ${category} <span class="text-gray-500 text-sm font-normal">(${items.length})</span>
                         </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                             ${items.map(item => `
-                                <div class="bg-white rounded-lg shadow-md p-4 max-w-md">
-                                    <h3 class="text-lg font-semibold mb-2">
-                                        <a href="${item.url}" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                <div class="bg-white rounded-lg ring-1 ring-gray-200 p-4 hover:ring-2 hover:ring-gray-300 transition-shadow">
+                                    <h3 class="text-base font-semibold text-gray-900 mb-2">
+                                        <a href="${item.url}" target="_blank" class="hover:text-blue-600 transition-colors">
                                             ${highlightText(item.name, searchTerm)}
                                         </a>
                                     </h3>
-                                    <p class="text-gray-600 mb-3">${highlightText(item['description'], searchTerm)}</p>
-                                    <div class="flex flex-wrap gap-1">
+                                    <p class="text-gray-600 text-sm mb-3">${highlightText(item['description'], searchTerm)}</p>
+                                    <div class="flex flex-wrap gap-1.5">
                                         ${(item.keywords || '').split(';').map(tag => 
                                             `<span class="tag ${activeKeywords.has(tag) ? 'active' : ''}" 
                                              onclick="toggleKeyword('${tag}')" 
@@ -153,7 +214,7 @@
                                     </div>
                                     ${activeKeywords.size > 0 ? `
                                         <div class="mt-2 text-sm">
-                                            <button onclick="clearKeywords()" class="text-blue-600 hover:text-blue-800">
+                                            <button onclick="clearKeywords()" class="text-blue-600 hover:text-blue-800 transition-colors">
                                                 Clear filters (${activeKeywords.size})
                                             </button>
                                         </div>
@@ -165,9 +226,28 @@
                 `).join('');
         }
 
+        function clearAllFilters() {
+            // Clear search
+            document.getElementById('search').value = '';
+            
+            // Clear keywords
+            activeKeywords.clear();
+            
+            // Reset grouping to default
+            document.getElementById('groupBy').value = 'type';
+            
+            // Update UI and URL
+            filterAndRender();
+            updateURLParameters();
+            
+            // Remove all URL parameters
+            window.history.replaceState({}, '', window.location.pathname);
+        }
+
         function clearKeywords() {
             activeKeywords.clear();
             filterAndRender();
+            updateURLParameters();
         }
 
         function filterAndRender() {
@@ -206,9 +286,17 @@
         let searchTimeout;
         document.getElementById('search').addEventListener('input', (e) => {
             clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(filterAndRender, 200); // Debounce search
+            searchTimeout = setTimeout(() => {
+                filterAndRender();
+                updateURLParameters();
+            }, 200); // Debounce search
         });
-        document.getElementById('groupBy').addEventListener('change', filterAndRender);
+        document.getElementById('groupBy').addEventListener('change', () => {
+            filterAndRender();
+            updateURLParameters();
+        });
+
+        document.getElementById('clearAllFilters').addEventListener('click', clearAllFilters);
 
         // Initialize data
         fetch('resources.csv')
@@ -229,6 +317,7 @@
                 
                 allData = parseResult.data.filter(item => item.name && item.url);
                 console.log('Loaded resources:', allData.length);
+                readURLParameters();  // Read URL parameters before initial render
                 filterAndRender();
             })
             .catch(error => {

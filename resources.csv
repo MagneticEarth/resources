@@ -1,52 +1,62 @@
 name,url,description,keywords
-IAGA Members List,https://www.iaga-aiga.org/,Main IAGA mailing list for latest news and updates,geophysics;IAGA;news
-IUGG e-Journal,https://iugg.org/publications/ejournals/,IUGG electronic journal for geophysics research,geophysics;IUGG;publications
-GeoDAWG Mailing List,https://sites.google.com/view/geodawg/mailing-list,Geospace Digital Active Working Group mailing list,space physics;heliophysics;geospace
-VERSIM,https://aurora.troja.mff.cuni.cz/versim/#banner,VLF/ELF Remote Sensing of Ionospheres and Magnetospheres working group,space physics;VLF;ELF;ionosphere
-EMIW,https://www.emiw.org/members/registration,Electromagnetic Induction Workshop community (IAGA Division 6),geophysics;electromagnetic induction;IAGA
-MTnet,http://mtnet.info/division/division.html,Magnetotelluric Network (IAGA Division 6),geophysics;magnetotellurics;IAGA
-SEDI,https://iugg.org/associations-commissions/commissions/sedi/,Study of the Earth's Deep Interior commission,geophysics;deep earth;IUGG
-GPMAG,https://lists.ucsd.edu/mailman/listinfo/gpmag-l,US Geophysics and Paleomagnetism mailing list,geophysics;paleomagnetism;US
-JISCMAIL Geophysics,https://www.jiscmail.ac.uk/cgi-bin/webadmin?A0=GEOPHYSICS,UK academic mailing list for geophysics,geophysics;UK;academia
-MIST,https://www.mist.ac.uk/community/mist-mailing-list,Magnetosphere Ionosphere Solar-Terrestrial UK community,space physics;solar-terrestrial;UK
-MOP,https://lasp.colorado.edu/mop/resources/mop-conference/,Meeting of the Minds in Space Physics community,space physics;conferences
-SCOSTEP,https://scostep.org/,Scientific Committee on Solar-Terrestrial Physics,space physics;solar-terrestrial;international
-SPA AGU,https://connect.agu.org/spa/home,AGU Space Physics and Aeronomy section,space physics;AGU;aeronomy
-ESA Heliophysics,https://www.cosmos.esa.int/web/esa-heliophysics/european-community,European Space Agency Heliophysics community,space physics;heliophysics;Europe;ESA
-Heliophysics Europe,https://heliophysics.eu/,European heliophysics portal for news and resources,space physics;heliophysics;Europe;portal
-SWEN,https://swe.ssa.esa.int/swen-newsletter,Space Weather Europe Newsletter,space weather;Europe;ESA
-eSWAN,https://eswan.eu/index.php/newsletter/latest-newsletter,European Space Weather and Space Climate Analysis Network,space weather;space climate;Europe
-Planetary News,https://www.planetarynews.org/,Planetary exploration news and updates,planetary science;exploration
-Europlanet,https://www.europlanet-society.org/,European Planetary Science community,planetary science;Europe
-UK Solar Physics,https://www.uksolphys.org/,UK Solar Physics community organization,solar physics;UK;community
-UK Planetary Forum,https://www.ukpf.org.uk/,UK Planetary Science community forum,planetary science;UK;community
-ATST France,https://atst.osups.universite-paris-saclay.fr/,Atelier Terre Solide et Temporalités community in France,solid earth;space physics;France;community
-AEF Germany,http://aef-ev.de/,Arbeitsgemeinschaft Extraterrestrische Forschung (German Space Research Community),space research;Germany;community
-Nordic Observatory,https://www.sgo.fi/NOC/,Nordic Observatory Meetings and Community,space physics;Nordic;observatory;community
-MTNet EMinars,http://mtnet.info/EMinars/EMinars.html,Magnetotelluric Network online seminars,geophysics;magnetotellurics;seminars
-Mag-NetZ,https://www2.earthref.org/MagIC/MagNetZ,Magnetic Network Zero seminars,geomagnetism;paleomagnetism;seminars
-MIST Online Seminars,https://mist.ac.uk/meetings/mist-online-seminars,UK MIST community online seminars,space physics;solar-terrestrial;seminars;UK
-ISSI Seminars,https://www.issibern.ch/online-seminars-game-changers/,International Space Science Institute online seminars,space science;seminars;international
-Magnetosphere Seminars,https://msolss.github.io/MagSeminars/,Online magnetosphere seminar series,space physics;magnetosphere;seminars
-GeoDAWG Seminars,https://sites.google.com/view/geodawg/seminars,Geospace Digital Active Working Group seminars,space physics;geospace;seminars
-SHIELD Webinars,https://shielddrivecenter.com/shield-webinars/,NASA DRIVE Science Center webinar series,space physics;heliophysics;seminars;NASA
-DeepDyn,https://www.geo.lmu.de/deepdyn/de/,Deep Earth Dynamics seminars,geophysics;deep earth;seminars
-LatinMag,https://latinmag.geofisica.unam.mx/,Latin American Paleomagnetism community seminars,paleomagnetism;Latin America;seminars
-EarthByte Seminars,https://www.earthbyte.org/category/earthbyte-seminars/,Earth dynamics and plate tectonics seminars,geodynamics;plate tectonics;seminars
-HelioPython School,https://heliopython.org/summer-school-24,Python programming for heliophysics summer school,heliophysics;python;education;summer school
-NASA FDL HelioLab,https://fdl.ai/heliolab,NASA Frontier Development Lab for heliophysics AI/ML applications,heliophysics;AI;machine learning;summer school;NASA
-STFC Space Plasma Schools,https://www.ukri.org/what-we-do/developing-people-and-skills/stfc/training/types-of-training/short-courses-and-summer-schools/,UK STFC introductory and advanced space plasma physics schools,space physics;plasma;education;summer school;UK
-Alpbach Summer School,https://www.summerschoolalpbach.at/,Annual space science and technology summer school in Austria,space science;technology;education;summer school;Europe
-E-SWAN Schools,https://www.eswan.eu/index.php?id=139,European Space Weather and Space Climate Analysis Network summer schools,space weather;space climate;education;summer school;Europe
-ISSS L'Aquila,https://www.cifs-isss.org/,International School of Space Science in L'Aquila,space science;education;summer school;Italy
-SWEC,https://www.stce.be/SWEC,Space Weather Education Center training program,space weather;education;training;Belgium
-NASA Heliophysics School,https://heliophysics.ucar.edu/summer-school,NASA Heliophysics Summer School at UCAR,heliophysics;education;summer school;NASA
-ESA Space Weather Training,https://www.esa.int/Education/ESA_Academy/Stay_ahead_of_the_storm_understand_the_fundamentals_of_space_weather_with_ESA,ESA Academy training on space weather fundamentals,space weather;education;training;ESA
-EISCAT Radar School,https://eiscat.se/events/,International EISCAT Radar School for ionospheric studies,radar;ionosphere;education;summer school;EISCAT
-ISR Summer School,https://amisr.com/school/,Annual Incoherent Scatter Radar Summer School,radar;ionosphere;education;summer school;NSF
-Culham Plasma School,https://culhamsummerschool.org.uk/,Culham plasma physics summer school,plasma physics;fusion;education;summer school;UK
-L'Aquila CCHS School,https://www.astrogeofisica.it/cchs/DefaultCCHS.aspx,L'Aquila Conjugate Computing and High-performance Simulation school,computing;simulation;education;summer school;Italy
-ML4PSP Seminars,https://ml4psp.github.io/,Machine Learning for Planetary Space Physics webinar series,machine learning;space physics;planetary;seminars
-SCOSTEP Lectures,https://scostep.org/capacity-building/capacity-building-lectures/,SCOSTEP Capacity Building Lectures in solar-terrestrial physics,space physics;solar-terrestrial;education;seminars
-ISWI Webinars,https://www.unoosa.org/oosa/en/ourwork/psa/bssi/iswi_webinars.html,International Space Weather Initiative Webinars,space weather;international;education;seminars
-Cold Plasma Seminars,https://www.lanl.gov/engage/organizations/aldsct/theoretical/ampp/cold-plasma-seminars,LANL Cold Plasma Physics Seminar Series,plasma physics;space physics;seminars
+IAGA,https://www.iaga-aiga.org/,International Association of Geomagnetism and Aeronomy's official website and member resources,organization;geophysics;geomagnetism;aeronomy;IAGA;international
+IUGG e-Journal,https://iugg.org/publications/ejournals/,International Union of Geodesy and Geophysics monthly newsletter and archives,newsletter;mailing-list;geophysics;IUGG;international;research
+GeoDAWG Mailing List,https://sites.google.com/view/geodawg/mailing-list,Geospace Data Assimilation Working Group community mailing list for IAGA Divisions II & III,newsletter;mailing-list;space-physics;modeling;data-analysis;IAGA;community
+VERSIM,https://aurora.troja.mff.cuni.cz/versim/#banner,VLF/ELF Remote Sensing of Ionospheres and Magnetospheres joint IAGA/URSI working group,organization;space-physics;plasma-physics;ionosphere;magnetosphere;IAGA;URSI;international
+EMIW,https://www.emiw.org/members/registration,Electromagnetic Induction Workshop biennial series by IAGA Division VI on Earth and planetary conductivity,workshop;geophysics;electromagnetic-induction;IAGA;international;early-career
+MTnet,http://mtnet.info/division/division.html,International electronic forum for magnetotelluric and electromagnetic methods research resources,organization;geophysics;magnetotellurics;electromagnetic-induction;IAGA;international;community
+SEDI,https://iugg.org/associations-commissions/commissions/sedi/,Study of the Earth's Deep Interior international commission for core and lower mantle research,organization;geophysics;paleomagnetism;IUGG;international;research
+GPMAG,https://lists.ucsd.edu/mailman/listinfo/gpmag-l,UC San Diego hosted mailing list for geophysics and paleomagnetism research community,newsletter;mailing-list;geophysics;paleomagnetism;rock-magnetism;US;research;community
+JISCMAIL Geophysics,https://www.jiscmail.ac.uk/cgi-bin/webadmin?A0=GEOPHYSICS,British Geophysical Association's official mailing list for UK geophysics community,newsletter;mailing-list;geophysics;UK;research;community
+MIST,https://www.mist.ac.uk/community/mist-mailing-list,"UK Magnetosphere, Ionosphere and Solar-Terrestrial physics community mailing list and events",newsletter;mailing-list;space-physics;solar-physics;UK;magnetosphere;ionosphere;community
+MOP,https://lasp.colorado.edu/mop/resources/mop-conference/,Magnetospheres of Outer Planets biennial conference on giant planet magnetospheres,conference;space-physics;planetary-science;magnetosphere;international
+SCOSTEP,https://scostep.org/,Scientific Committee on Solar-Terrestrial Physics coordinating international research and education programs,organization;space-physics;solar-physics;education;international;research
+SPA AGU,https://connect.agu.org/spa/home,American Geophysical Union's Space Physics and Aeronomy section for solar-terrestrial and planetary research,organization;space-physics;aeronomy;solar-physics;planetary-science;US;research
+ESA Heliophysics,https://www.cosmos.esa.int/web/esa-heliophysics/european-community,European Space Agency's heliophysics research program and resources portal,organization;heliophysics;research;education;Europe;ESA
+Heliophysics Europe,https://www.heliophysics.eu/,European Heliophysics Community portal for cross-disciplinary research coordination and training,organization;heliophysics;space-weather;Europe;education;early-career;community;EHC
+EHC Newsletter,https://www.heliophysics.eu/newsletter,European Heliophysics Community newsletter covering research and community updates,newsletter;mailing-list;heliophysics;space-weather;Europe;community;EHC
+SWEN,https://swe.ssa.esa.int/swen-newsletter,Space Weather Euro News - ESA's electronic newsletter for European space weather community,newsletter;mailing-list;space-weather;Europe;ESA;community
+eSWAN,https://eswan.eu/index.php/newsletter/latest-newsletter,European Space Weather and Space Climate Analysis Network newsletter and resources,newsletter;mailing-list;space-weather;Europe;education;community
+Planetary News,https://www.planetarynews.org/,Planetary Exploration Newsletter by Planetary Science Institute for planetary science community updates,newsletter;mailing-list;planetary-science;community;international
+Europlanet,https://www.europlanet-society.org/,European planetary science network for research infrastructure and community support,organization;planetary-science;Europe;research;education;early-career;community
+UK Solar Physics,https://www.uksolphys.org/,"Royal Astronomical Society specialist group for UK solar physics research community",organization;solar-physics;UK;research;community;early-career
+UK Planetary Forum,https://www.ukpf.org.uk/,Joint Geological Society-Royal Astronomical Society group for UK planetary research community,organization;planetary-science;UK;research;community;early-career
+ATST France,https://atst.osups.universite-paris-saclay.fr/,"Action Thématique Soleil-Terre - French CNRS program for solar-terrestrial physics research",organization;solar-physics;space-physics;France;research;CNRS
+AEF Germany,http://aef-ev.de/,Arbeitsgemeinschaft Extraterrestrische Forschung - German association for space research community,organization;space-physics;planetary-science;Germany;research;community;early-career
+Nordic Observatory,https://www.sgo.fi/NOC/,Nordic Observatory Collaboration for geomagnetic and atmospheric observations across Nordic countries,organization;space-physics;geomagnetism;instrumentation;observations;Nordic;research
+MTNet EMinars,http://mtnet.info/EMinars/EMinars.html,Magnetotelluric Network's weekly webinar series for electromagnetic induction research,seminars;geophysics;magnetotellurics;electromagnetic-induction;education;international
+Mag-NetZ,https://www2.earthref.org/MagIC/MagNetZ,"Magnetics Information Consortium seminar series on paleomagnetic and rock magnetic research",seminars;paleomagnetism;rock-magnetism;geomagnetism;education;international
+MIST Online Seminars,https://mist.ac.uk/meetings/mist-online-seminars,"Monthly online seminars by UK Magnetosphere, Ionosphere and Solar-Terrestrial physics community",seminars;space-physics;solar-physics;UK;magnetosphere;ionosphere;education
+ISSI Seminars,https://www.issibern.ch/online-seminars-game-changers/,International Space Science Institute's 'Game Changers' seminar series on space and Earth science,seminars;space-physics;planetary-science;international;education
+Magnetosphere Seminars,https://msolss.github.io/MagSeminars/,Weekly Magnetosphere Online Seminar Series supported by NASA Goddard,seminars;space-physics;magnetosphere;education;early-career;NASA;US
+GeoDAWG Seminars,https://sites.google.com/view/geodawg/seminars,Monthly Geospace Data Assimilation Working Group virtual seminar series,seminars;space-physics;ionosphere;magnetosphere;modeling;data-analysis;education
+SHIELD Webinars,https://shielddrivecenter.com/shield-webinars/,NASA SHIELD DRIVE Science Center webinar series on heliophysics research and career development,seminars;heliophysics;education;early-career;NASA;US
+DeepDyn,https://www.geo.lmu.de/deepdyn/de/,German DFG Priority Programme seminar series on Earth's deep interior dynamics,seminars;geophysics;paleomagnetism;Germany;research
+LatinMag,https://latinmag.geofisica.unam.mx/,Latin American geomagnetism and paleomagnetism research community forum by UNAM,organization;geophysics;paleomagnetism;rock-magnetism;geomagnetism;Latin-America;research;community
+EarthByte Seminars,https://www.earthbyte.org/category/earthbyte-seminars/,University of Sydney geophysics and computational Earth science seminar series,seminars;geophysics;education;research
+HelioPython School,https://heliopython.org/summer-school-24,Annual Python programming summer school for heliophysics and space weather research by the Python in Heliophysics Community,summer-school;heliophysics;space-weather;data-analysis;education;early-career;NASA;US
+NASA FDL HelioLab,https://fdl.ai/heliolab,NASA Frontier Development Laboratory's artificial intelligence research program for space weather and heliophysics applications,organization;heliophysics;space-weather;research;NASA;US
+STFC Space Plasma Schools,https://www.ukri.org/what-we-do/developing-people-and-skills/stfc/training/types-of-training/short-courses-and-summer-schools/,Science and Technology Facilities Council training courses in space plasma physics and solar-terrestrial physics,summer-school;space-physics;plasma-physics;education;graduate;early-career;STFC;UK
+Alpbach Summer School,https://www.summerschoolalpbach.at/,European Space Agency's annual space mission design summer school in Austria,summer-school;space-physics;education;early-career;ESA;Europe
+E-SWAN Schools,https://www.eswan.eu/index.php?id=139,European Space Weather and Space Climate Analysis Network training courses,training;space-weather;education;Europe
+ISSS L'Aquila,https://www.cifs-isss.org/,International School of Space Science at University of L'Aquila offering graduate courses in space science,summer-school;space-physics;education;graduate;Italy;international
+SWEC,https://www.stce.be/SWEC,Space Weather Education Center at Royal Observatory of Belgium training facility,training;space-weather;education;Europe
+NASA Heliophysics School,https://heliophysics.ucar.edu/summer-school,NASA Living With a Star program's annual summer school for heliophysics and space weather,summer-school;heliophysics;space-weather;education;graduate;NASA;US
+ESA Space Weather Training,https://www.esa.int/Education/ESA_Academy/Stay_ahead_of_the_storm_understand_the_fundamentals_of_space_weather_with_ESA,European Space Agency's training course in space weather fundamentals for graduate students,training;space-weather;education;graduate;ESA;Europe
+EISCAT Radar School,https://www.eiscat.se/scientist/schools-and-seminars/,European Incoherent Scatter Scientific Association's training program for radar operations and ionospheric research,summer-school;space-physics;ionosphere;instrumentation;education;Nordic
+ISR Summer School,https://amisr.com/school/,Advanced Modular Incoherent Scatter Radar summer program for ionospheric physics research and radar operations,summer-school;space-physics;ionosphere;instrumentation;education;US
+Culham Plasma School,https://culhamsummerschool.org.uk/,UK Atomic Energy Authority's training program in plasma physics and fusion research at Culham Science Centre,summer-school;plasma-physics;education;UK
+L'Aquila CCHS School,https://www.astrogeofisica.it/cchs/DefaultCCHS.aspx,"Cross-scale Coupling in Heliophysics Systems school at University of L'Aquila for heliophysics and space plasma physics",summer-school;heliophysics;plasma-physics;education;graduate;early-career;Italy
+ML4PSP Seminars,https://ml4psp.github.io/,Machine Learning for Planetary Science and Space Physics monthly seminar series,seminars;space-physics;planetary-science;data-analysis;education;international
+SCOSTEP Lectures,https://scostep.org/capacity-building/capacity-building-lectures/,Scientific Committee on Solar-Terrestrial Physics monthly online lectures for capacity building in space physics,seminars;space-physics;solar-physics;education;students;early-career;international
+ISWI Webinars,https://www.unoosa.org/oosa/en/ourwork/psa/bssi/iswi_webinars.html,"International Space Weather Initiative webinar series by UN Office for Outer Space Affairs",seminars;space-weather;solar-physics;magnetosphere;ionosphere;observations;UNOOSA;international;education
+Cold Plasma Seminars,https://www.lanl.gov/engage/organizations/aldsct/theoretical/ampp/cold-plasma-seminars,"Los Alamos National Laboratory seminar series on cold plasma science in magnetospheric physics",seminars;plasma-physics;space-physics;magnetosphere;US
+IAGA School,https://iaga-aiga.org/iagaschool/,"IAGA School for young scientists providing training in geomagnetism and aeronomy",summer-school;geophysics;geomagnetism;aeronomy;ionosphere;magnetosphere;paleomagnetism;education;early-career;IAGA;international
+EMIW Homepage,https://www.emiw.org/,"Electromagnetic Induction Workshops main site for electromagnetic studies of the Earth",organization;geophysics;electromagnetic-induction;research;IAGA;international
+ISGI Service,https://isgi.unistra.fr/,"International Service of Geomagnetic Indices providing geomagnetic activity data and indices",organization;geophysics;geomagnetism;data-analysis;IAGA;international
+IAGA Division V,https://isgi.unistra.fr/iagaDivV/,"IAGA Division V: Geomagnetic Observatories, Surveys and Analyses",organization;geophysics;geomagnetism;observations;IAGA;international
+V-DAT Working Group,https://www.ncei.noaa.gov/services/world-data-system/v-dat-working-group,"IAGA Division V Working Group for Data Analysis Tools",organization;geophysics;geomagnetism;data-analysis;IAGA;international
+V-MOD Working Group,https://www.ncei.noaa.gov/services/world-data-system/v-mod-working-group,"IAGA Division V Working Group for Geomagnetic Field Modeling",organization;geophysics;geomagnetism;modeling;IAGA;international
+INTERMAGNET,https://iaga-vobs.org/,"International Real-time Magnetic Observatory Network",organization;geophysics;geomagnetism;observations;instrumentation;IAGA;international
+EMSEV,https://www.emsev-iugg.org/emsev/,"IUGG/IAGA Working Group on Electromagnetic Studies of Earthquakes and Volcanoes",organization;geophysics;electromagnetic-induction;research;IAGA;IUGG;international
+IAGA Newsletter,https://iaga-aiga.org/index.php?id=newsletter,"IAGA's official newsletter covering geomagnetism, aeronomy, and related Earth science updates",newsletter;mailing-list;geophysics;geomagnetism;aeronomy;IAGA;international
